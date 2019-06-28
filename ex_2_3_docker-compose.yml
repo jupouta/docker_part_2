@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  backend-docker:
+    image: backend-docker
+    ports:
+     - 127.0.0.1:8000:8000
+    environment:
+     - FRONT_URL=http://localhost:5000
+  front-docker:
+    image: front-docker
+    ports:
+     - 127.0.0.1:5000:5000
+    environment:
+     - API_URL=http://localhost:8000

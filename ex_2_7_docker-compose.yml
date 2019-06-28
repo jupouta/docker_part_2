@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+  backend:
+    image: backend-kurkku
+    ports:
+     - 5000:5000
+    volumes:
+     - model:/src/model
+
+  frontend:
+    image: frontend-kurkku
+    ports:
+     - 3000:3000
+
+  training:
+    image: training-kurkku
+    volumes:
+     - model:/src/model
+     - images:/src/imgs
+
+volumes:
+  model:
+  images:
